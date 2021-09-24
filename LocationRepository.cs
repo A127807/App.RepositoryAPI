@@ -17,9 +17,13 @@ namespace App.Repository
 			this._webApiExectuter = webApiExectuter;
 		}
 
-		public async Task<IEnumerable<Location>> GetAsync()
+		public async Task<IEnumerable<Location>> Get()
 		{
 			return await _webApiExectuter.InvokeGet<IEnumerable<Location>>("api/locations");
+		}
+		public async Task<IEnumerable<Location>> GetLocationById(int id)
+		{
+			return await _webApiExectuter.InvokeGet<IEnumerable<Location>>("api/locations/{id}");
 		}
 
 	}
